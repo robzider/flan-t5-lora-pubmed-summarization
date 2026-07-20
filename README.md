@@ -1,4 +1,4 @@
-# Ajuste Fino Eficiente (LoRA) de FLAN-T5-Base para el Resumen de Literatura Médica (PubMed)
+# Ajuste Fino (Fine-Tuning) Eficiente (LoRA) de FLAN-T5-Base para el Resumen de Literatura Médica (PubMed)
 
 [![Abrir en Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/usuario/repo/blob/main/notebook_grupo1_p2.ipynb)
 [![Ver Informe PDF](https://img.shields.io/badge/Informe-PDF-red.svg)](docs/informe_grupo1_p2.pdf)
