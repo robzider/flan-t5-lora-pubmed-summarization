@@ -19,7 +19,7 @@
 
 ---
 
-## 📂 Estructura Oficial del Repositorio en GitHub
+## 📂 Estructura Oficial del Repositorio 
 
 ```text
 .
