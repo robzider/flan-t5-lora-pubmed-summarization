@@ -1,10 +1,7 @@
 # Ajuste Fino Eficiente (LoRA) de FLAN-T5-Base para el Resumen de Literatura Médica (PubMed)
 
 [![Abrir en Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/usuario/repo/blob/main/notebook_grupo1_p2.ipynb)
-![Python 3.10+](https://img.shields.io/badge/Python-3.10%2B-blue.svg)
-![PyTorch](https://img.shields.io/badge/PyTorch-2.0%2B-orange.svg)
-![HuggingFace PEFT](https://img.shields.io/badge/PEFT-LoRA-yellow.svg)
-![Licencia](https://img.shields.io/badge/Licencia-MIT-green.svg)
+[![Ver Informe PDF](https://img.shields.io/badge/Informe-PDF-red.svg)](docs/informe_grupo1_p2.pdf)
 
 > **Proyecto de Investigación y Réplica — Segundo Parcial**  
 > **Asignatura:** Redes Neuronales y Aprendizaje Profundo (CDDEIA-ELNO-6-2)  
@@ -13,7 +10,7 @@
 
 ---
 
-## 📌 Paper de Referencia
+## Paper de Referencia
 
 * **Título:** *Parameter-Efficient Fine-Tuning for Medical Text Summarization: A Comparative Study of LoRA, Prompt Tuning, and Full Fine-Tuning*
 * **Autores:** Ulugbek Shernazarov, Rostislav Svitsov, Bin Shi (2026)
@@ -40,7 +37,7 @@
 
 ---
 
-## 📊 Galería de Resultados Gráficos
+## Galería de Resultados Gráficos
 
 ### Figura 1: Análisis Exploratorio de Datos (EDA) del Dataset PubMed
 ![Figura 1: EDA PubMed](docs/pics/figura1_eda_pubmed.png)
@@ -56,7 +53,7 @@
 
 ---
 
-## 📈 Resultados Cuantitativos Comparativos
+## Resultados Cuantitativos Comparativos
 
 | Estrategia | Parámetros Entrenables | % Params | ROUGE-1 | ROUGE-2 | ROUGE-L | VRAM Consumida | Tiempo de Entren. |
 | :--- | :---: | :---: | :---: | :---: | :---: | :---: | :---: |
@@ -66,18 +63,18 @@
 
 ---
 
-## 🛠️ Contenido del Notebook (`notebook_grupo1_p2.ipynb`)
+## Contenido del Notebook (`notebook_grupo1_p2.ipynb`)
 
-1. **§ 1 — Paper y Problema:** Resumen de Shernazarov et al. (2026), justificación de la réplica y estrategia PEFT.
-2. **§ 2 — Dataset y EDA:** Carga de `ccdv/pubmed-summarization`, tokenización y gráficos de distribución de palabras.
-3. **§ 3 — Implementación de la Adaptación:** Carga del modelo base `google/flan-t5-base`, inyección de LoRA ($r=8, \alpha=16$) en proyecciones `q` y `v` (0.36% parámetros).
-4. **§ 4 — Evaluación: Antes y Después:** Evaluación cuantitativa de Baseline Zero-Shot vs Full Fine-Tuning vs PEFT-LoRA, curvas de loss y muestras cualitativas (#0, #10, #25).
-5. **§ 5 — Análisis Crítico:** Explicación matemática de prevención de sobreajuste, límites de secuencia y propuesta de QLoRA/AdaLoRA.
-6. **§ 6 — Conclusiones:** Réplica exitosa, viabilidad en GPU Colab T4 con solución de estabilidad `fp32` y acumulación de gradientes.
+1. **1 — Paper y Problema:** Resumen de Shernazarov et al. (2026), justificación de la réplica y estrategia PEFT.
+2. **2 — Dataset y EDA:** Carga de `ccdv/pubmed-summarization`, tokenización y gráficos de distribución de palabras.
+3. **3 — Implementación de la Adaptación:** Carga del modelo base `google/flan-t5-base`, inyección de LoRA ($r=8, \alpha=16$) en proyecciones `q` y `v` (0.36% parámetros).
+4. **4 — Evaluación: Antes y Después:** Evaluación cuantitativa de Baseline Zero-Shot vs Full Fine-Tuning vs PEFT-LoRA, curvas de loss y muestras cualitativas (#0, #10, #25).
+5. **5 — Análisis Crítico:** Explicación matemática de prevención de sobreajuste, límites de secuencia y propuesta de QLoRA/AdaLoRA.
+6. **6 — Conclusiones:** Réplica exitosa, viabilidad en GPU Colab T4 con solución de estabilidad `fp32` y acumulación de gradientes.
 
 ---
 
-## ⚙️ Limitaciones Técnicas y Diagnóstico de Hardware
+## Limitaciones Técnicas y Diagnóstico de Hardware
 
 * **Diagnóstico de Precisión `fp32`:** FLAN-T5 fue pre-entrenado en `bfloat16`. Al ejecutarlo en la GPU Tesla T4 de Colab (sin soporte de hardware para `bfloat16`), la precisión `fp16` producía errores de desbordamiento (`NaN`). Se solucionó forzando `fp16=False` (`fp32`) y usando acumulación de gradientes para mantener un lote efectivo de 16.
 * **Propuestas de Mejora:** Integración de **QLoRA** a 4 bits (NF4) y asignación de rango dinámico (**AdaLoRA**) para permitir la adaptación de modelos de mayor escala como FLAN-T5-Large (770M).
