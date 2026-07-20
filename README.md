@@ -81,7 +81,7 @@
 
 ---
 
-## 🤖 Declaración de Uso de IA
+## Declaración de Uso de IA
 
 Partes del código del notebook y de la redacción del informe fueron desarrolladas con asistencia de herramientas de IA generativa para el formateo sintáctico y la auditoría metodológica.
 
