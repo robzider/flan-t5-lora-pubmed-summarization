@@ -6,7 +6,7 @@
 > **Proyecto de Investigación y Réplica — Segundo Parcial**  
 > **Asignatura:** Redes Neuronales y Aprendizaje Profundo (CDDEIA-ELNO-6-2)  
 > **Universidad de Guayaquil — Carrera de Ciencias de Datos e Inteligencia Artificial**  
-> **Grupo 1:** Alvarez Roberto, Carlos Jeancarlos, Intriago Jorge, Menoscal Julleysi, Remache Steven  
+> **Grupo 1:** Alvarez Roberto, Carlos Jeancarlos, Intriago Jorge, Menoscal Julleysi, Remache Valeria  
 
 ---
 
